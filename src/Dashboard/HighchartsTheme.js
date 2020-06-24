@@ -1,4 +1,4 @@
-import {lightTheme} from "../Shared/Styles";
+import { lightTheme } from '../Shared/Styles';
 
 export default {
   colors: [
@@ -47,7 +47,6 @@ export default {
         fontWeight: 'bold',
         fontSize: '12px',
         fontFamily: 'Trebuchet MS, Verdana, sans-serif'
-
       }
     }
   },

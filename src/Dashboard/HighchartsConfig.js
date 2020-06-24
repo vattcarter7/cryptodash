@@ -1,4 +1,4 @@
-export default function (historical) {
+export default function(historical) {
   return {
     title: {
       text: ''
@@ -9,7 +9,9 @@ export default function (historical) {
         text: 'Price'
       }
     },
-    xAxis: {type: 'datetime'},
+
+    xAxis: { type: 'datetime' },
+
     legend: {
       layout: 'vertical',
       align: 'right',
@@ -28,18 +30,20 @@ export default function (historical) {
     series: historical,
 
     responsive: {
-      rules: [{
-        condition: {
-          maxWidth: 500
-        },
-        chartOptions: {
-          legend: {
-            layout: 'horizontal',
-            align: 'center',
-            verticalAlign: 'bottom'
+      rules: [
+        {
+          condition: {
+            maxWidth: 500
+          },
+          chartOptions: {
+            legend: {
+              layout: 'horizontal',
+              align: 'center',
+              verticalAlign: 'bottom'
+            }
           }
         }
-      }]
+      ]
     }
   };
 }
