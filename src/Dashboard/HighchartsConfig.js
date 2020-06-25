@@ -1,4 +1,4 @@
-export default function(historical) {
+export default (historical) => {
   return {
     title: {
       text: ''
@@ -46,4 +46,4 @@ export default function(historical) {
       ]
     }
   };
-}
+};

@@ -12,7 +12,7 @@ const ChartGrid = styled.div`
   grid-template-columns: 1fr 3fr;
 `;
 
-export default function() {
+export default () => {
   return (
     <Page name='dashboard'>
       <PriceGrid />
@@ -22,4 +22,4 @@ export default function() {
       </ChartGrid>
     </Page>
   );
-}
+};

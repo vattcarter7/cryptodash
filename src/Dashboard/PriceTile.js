@@ -49,46 +49,45 @@ const PriceTileStyled = styled(SelectableTile)`
     `}
 `;
 
-function ChangePercent({ data }) {
-  return (
-    <JustifyRight>
-      <ChangePct red={data.CHANGEPCT24HOUR < 0}>
-        {numberFormat(data.CHANGEPCT24HOUR)}%
-      </ChangePct>
-    </JustifyRight>
-  );
-}
+const ChangePercent = ({ data }) => (
+  <JustifyRight>
+    <ChangePct red={data.CHANGEPCT24HOUR < 0}>
+      {numberFormat(data.CHANGEPCT24HOUR)}%
+    </ChangePct>
+  </JustifyRight>
+);
 
-function PriceTile({ sym, data, currentFavorite, setCurrentFavorite }) {
-  return (
-    <PriceTileStyled
-      onClick={setCurrentFavorite}
-      currentFavorite={currentFavorite}
-    >
-      <CoinHeaderGridStyled>
-        <div> {sym} </div>
-        <ChangePercent data={data} />
-      </CoinHeaderGridStyled>
-      <TickerPrice>${numberFormat(data.PRICE)}</TickerPrice>
-    </PriceTileStyled>
-  );
-}
-
-function PriceTileCompact({ sym, data, currentFavorite, setCurrentFavorite }) {
-  return (
-    <PriceTileStyled
-      onClick={setCurrentFavorite}
-      compact
-      currentFavorite={currentFavorite}
-    >
-      <JustifyLeft> {sym} </JustifyLeft>
+const PriceTile = ({ sym, data, currentFavorite, setCurrentFavorite }) => (
+  <PriceTileStyled
+    onClick={setCurrentFavorite}
+    currentFavorite={currentFavorite}
+  >
+    <CoinHeaderGridStyled>
+      <div> {sym} </div>
       <ChangePercent data={data} />
-      <div>${numberFormat(data.PRICE)}</div>
-    </PriceTileStyled>
-  );
-}
+    </CoinHeaderGridStyled>
+    <TickerPrice>${numberFormat(data.PRICE)}</TickerPrice>
+  </PriceTileStyled>
+);
 
-export default function({ price, index }) {
+const PriceTileCompact = ({
+  sym,
+  data,
+  currentFavorite,
+  setCurrentFavorite
+}) => (
+  <PriceTileStyled
+    onClick={setCurrentFavorite}
+    compact
+    currentFavorite={currentFavorite}
+  >
+    <JustifyLeft> {sym} </JustifyLeft>
+    <ChangePercent data={data} />
+    <div>${numberFormat(data.PRICE)}</div>
+  </PriceTileStyled>
+);
+
+export default ({ price, index }) => {
   let sym = Object.keys(price)[0];
   let data = price[sym]['USD'];
   let TileClass = index < 5 ? PriceTile : PriceTileCompact;
@@ -104,4 +103,4 @@ export default function({ price, index }) {
       )}
     </AppContext.Consumer>
   );
-}
+};

@@ -10,7 +10,7 @@ const PriceGrid = styled.div`
   margin-top: 40px;
 `;
 
-export default function() {
+export default () => {
   return (
     <AppContext.Consumer>
       {({ prices }) => (
@@ -22,4 +22,4 @@ export default function() {
       )}
     </AppContext.Consumer>
   );
-}
+};

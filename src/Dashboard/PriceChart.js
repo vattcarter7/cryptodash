@@ -7,7 +7,7 @@ import HighchartsTheme from './HighchartsTheme';
 import ChartSelect from './ChartSelect';
 ReactHighcharts.Highcharts.setOptions(HighchartsTheme);
 
-export default function() {
+export default () => {
   return (
     <AppContext.Consumer>
       {({ historical, changeChartSelect }) => (
@@ -29,4 +29,4 @@ export default function() {
       )}
     </AppContext.Consumer>
   );
-}
+};
