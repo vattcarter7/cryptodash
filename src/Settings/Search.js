@@ -38,26 +38,24 @@ const handleFilter = _.debounce((inputValue, coinList, setFilterCoins) => {
   setFilterCoins(filteredCoins);
 }, 500);
 
-function filterCoins(e, setFilteredCoins, coinList) {
+const filterCoins = (e, setFilteredCoins, coinList) => {
   let inputValue = e.target.value;
   if (!inputValue) {
     setFilteredCoins(null);
     return;
   }
   handleFilter(inputValue, coinList, setFilteredCoins);
-}
+};
 
-export default function() {
-  return (
-    <AppContext.Consumer>
-      {({ setFilteredCoins, coinList }) => (
-        <SearchGrid>
-          <h2>Search all coins</h2>
-          <SearchInput
-            onKeyUp={(e) => filterCoins(e, setFilteredCoins, coinList)}
-          />
-        </SearchGrid>
-      )}
-    </AppContext.Consumer>
-  );
-}
+export default () => (
+  <AppContext.Consumer>
+    {({ setFilteredCoins, coinList }) => (
+      <SearchGrid>
+        <h2>Search all coins</h2>
+        <SearchInput
+          onKeyUp={(e) => filterCoins(e, setFilteredCoins, coinList)}
+        />
+      </SearchGrid>
+    )}
+  </AppContext.Consumer>
+);
